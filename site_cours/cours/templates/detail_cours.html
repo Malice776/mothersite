@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ cours.titre }} - Mes Cours{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="{% url 'accueil' %}">Accueil</a> / <span>{{ cours.titre }}</span>
+</div>
+
+<article class="cours-detail">
+    <header class="cours-detail-header">
+        <h1>{{ cours.titre }}</h1>
+        <div class="cours-meta-info">
+            <small>Ajouté le {{ cours.date_ajout|date:"d/m/Y à H:i" }}</small>
+            {% if cours.date_modification != cours.date_ajout %}
+            <small>Modifié le {{ cours.date_modification|date:"d/m/Y à H:i" }}</small>
+            {% endif %}
+        </div>
+    </header>
+
+    {% if cours.description %}
+    <section class="cours-section">
+        <h2>Description</h2>
+        <div class="cours-content">
+            {{ cours.description|linebreaks }}
+        </div>
+    </section>
+    {% endif %}
+
+    {% if cours.contenu %}
+    <section class="cours-section">
+        <h2>Contenu du cours</h2>
+        <div class="cours-content">
+            {{ cours.contenu|linebreaks }}
+        </div>
+    </section>
+    {% endif %}
+
+    {% if cours.liens.all %}
+    <section class="cours-section">
+        <h2>Ressources et liens</h2>
+        
+        {% for type_lien, liens in liens_par_type.items %}
+        <div class="liens-group">
+            <h3 class="liens-group-title">
+                {% if type_lien == 'video' %}📹 Vidéos
+                {% elif type_lien == 'exercice' %}✏️ Exercices
+                {% elif type_lien == 'document' %}📄 Documents
+                {% elif type_lien == 'ressource' %}🔗 Ressources externes
+                {% else %}📎 Autres liens
+                {% endif %}
+            </h3>
+            
+            <ul class="liens-list">
+                {% for lien in liens %}
+                <li class="lien-item">
+                    <div class="lien-content">
+                        <a href="{{ lien.url }}" target="_blank" rel="noopener" class="lien-title">
+                            {{ lien.titre }}
+                        </a>
+                        {% if lien.description %}
+                        <p class="lien-description">{{ lien.description }}</p>
+                        {% endif %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+
+    <div class="cours-actions">
+        <a href="{% url 'accueil' %}" class="btn btn-secondary">← Retour à l'accueil</a>
+    </div>
+</article>
+{% endblock %}

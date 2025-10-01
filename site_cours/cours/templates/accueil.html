@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Accueil - Mes Cours{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Derniers cours ajoutés</h1>
+    <p class="subtitle">Découvrez les cours les plus récents</p>
+</div>
+
+<div class="cours-grid">
+    {% for c in cours %}
+    <article class="cours-card">
+        <div class="cours-card-header">
+            <h2 class="cours-title">
+                <a href="{% url 'detail_cours' c.id %}">{{ c.titre }}</a>
+            </h2>
+        </div>
+        
+        <div class="cours-card-body">
+            {% if c.description %}
+            <p class="cours-description">{{ c.description|truncatewords:30 }}</p>
+            {% endif %}
+            
+            {% if c.liens.all %}
+            <div class="cours-meta">
+                <span class="badge">{{ c.liens.count }} lien{{ c.liens.count|pluralize }}</span>
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="cours-card-footer">
+            <small class="date">Ajouté le {{ c.date_ajout|date:"d/m/Y" }}</small>
+            <a href="{% url 'detail_cours' c.id %}" class="btn btn-primary">Voir le cours</a>
+        </div>
+    </article>
+    {% empty %}
+    <div class="empty-state">
+        <p>Aucun cours disponible pour le moment.</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

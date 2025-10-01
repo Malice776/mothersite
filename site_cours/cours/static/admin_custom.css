@@ -1,0 +1,98 @@
+/* Personnalisation de l'interface d'administration Django */
+
+/* En-tête plus moderne */
+#header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-bottom: 3px solid #5a67d8;
+}
+
+#branding h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Améliorer les liens dans l'en-tête */
+#header a:link, #header a:visited {
+    color: #fff;
+}
+
+/* Boutons plus visibles */
+.submit-row input[type="submit"],
+.button, input[type="submit"], input[type="button"], .submit-row input, button {
+    background: #667eea;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.submit-row input[type="submit"]:hover,
+.button:hover, input[type="submit"]:hover {
+    background: #5a67d8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Améliorer les inline forms (pour les liens) */
+.tabular.inline-related tbody tr {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tabular.inline-related tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/* Rendre les fieldsets plus jolis */
+.module h2, .module caption, .inline-group h2 {
+    background: #f3f4f6;
+    color: #374151;
+    border-radius: 6px 6px 0 0;
+    padding: 12px 15px;
+    font-weight: 600;
+}
+
+fieldset.module {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Messages de succès plus visibles */
+.messagelist .success {
+    background: #10b981;
+    border-radius: 6px;
+    margin: 10px 0;
+}
+
+.messagelist .error {
+    background: #ef4444;
+    border-radius: 6px;
+}
+
+/* Améliorer les tableaux */
+#result_list th {
+    background: #f3f4f6;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    padding: 12px 10px;
+}
+
+#result_list tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/* Rendre le formulaire plus aéré */
+.form-row {
+    padding: 15px 10px;
+}
+
+/* Améliorer les help texts */
+.help, p.help, form .help {
+    color: #6b7280;
+    font-size: 0.875rem;
+    font-style: italic;
+}
