@@ -1,0 +1,548 @@
+/* ========================================
+   VARIABLES CSS - Modifiez ces valeurs pour personnaliser
+   ======================================== */
+:root {
+  /* Couleurs principales */
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-secondary: #64748b;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+  
+  /* Couleurs de fond */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  
+  /* Couleurs de texte */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  
+  /* Bordures */
+  --border-color: #e2e8f0;
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+  
+  /* Ombres */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  
+  /* Espacements */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Typographie */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  
+  /* Largeurs */
+  --container-width: 1200px;
+}
+
+
+/* ========================================
+   RESET ET STYLES DE BASE
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+
+/* ========================================
+   CONTENEUR PRINCIPAL
+   ======================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+
+/* ========================================
+   HEADER
+   ======================================== */
+.header {
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--spacing-md) 0;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.logo a:hover {
+  color: var(--color-primary);
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.nav-link {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  background-color: var(--bg-tertiary);
+}
+
+
+/* ========================================
+   MAIN CONTENT
+   ======================================== */
+.main {
+  flex: 1;
+  padding: var(--spacing-xl) 0;
+}
+
+
+/* ========================================
+   PAGE HEADER
+   ======================================== */
+.page-header {
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+}
+
+
+/* ========================================
+   BREADCRUMB
+   ======================================== */
+.breadcrumb {
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.breadcrumb a {
+  color: var(--color-primary);
+}
+
+.breadcrumb span {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+
+/* ========================================
+   GRILLE DE COURS (Page d'accueil)
+   ======================================== */
+.cours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+
+/* ========================================
+   CARTE DE COURS
+   ======================================== */
+.cours-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cours-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.cours-card-header {
+  margin-bottom: var(--spacing-sm);
+}
+
+.cours-title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs);
+}
+
+.cours-title a {
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+.cours-title a:hover {
+  color: var(--color-primary);
+}
+
+.cours-card-body {
+  flex: 1;
+  margin-bottom: var(--spacing-md);
+}
+
+.cours-description {
+  color: var(--text-secondary);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-sm);
+}
+
+.cours-meta {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border-radius: 999px;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+.cours-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--border-color);
+}
+
+.date {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+
+/* ========================================
+   BOUTONS
+   ======================================== */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+
+/* ========================================
+   PAGE DE DÉTAIL DU COURS
+   ======================================== */
+.cours-detail {
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.cours-detail-header {
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.cours-detail-header h1 {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.cours-meta-info {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.cours-meta-info small {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+
+/* ========================================
+   SECTIONS DU COURS
+   ======================================== */
+.cours-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.cours-section h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cours-content {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+
+/* ========================================
+   GROUPES DE LIENS
+   ======================================== */
+.liens-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.liens-group-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.liens-list {
+  list-style: none;
+  display: grid;
+  gap: var(--spacing-sm);
+}
+
+.lien-item {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  transition: all 0.2s ease;
+}
+
+.lien-item:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.lien-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.lien-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.lien-title::after {
+  content: '↗';
+  font-size: var(--font-size-sm);
+  opacity: 0.6;
+}
+
+.lien-title:hover {
+  color: var(--color-primary-dark);
+}
+
+.lien-description {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+
+/* ========================================
+   ACTIONS DU COURS
+   ======================================== */
+.cours-actions {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+}
+
+
+/* ========================================
+   ÉTAT VIDE
+   ======================================== */
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--text-muted);
+  font-size: var(--font-size-lg);
+  background-color: var(--bg-tertiary);
+  border-radius: var(--border-radius-lg);
+  border: 2px dashed var(--border-color);
+}
+
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border-color);
+  padding: var(--spacing-lg) 0;
+  margin-top: auto;
+}
+
+.footer p {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+
+/* ========================================
+   RESPONSIVE - TABLETTES
+   ======================================== */
+@media (max-width: 768px) {
+  :root {
+    --font-size-3xl: 1.75rem;
+    --font-size-2xl: 1.375rem;
+    --spacing-xl: 2rem;
+  }
+  
+  .cours-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .header .container {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .cours-detail {
+    padding: var(--spacing-md);
+  }
+}
+
+
+/* ========================================
+   RESPONSIVE - MOBILES
+   ======================================== */
+@media (max-width: 480px) {
+  :root {
+    --spacing-xl: 1.5rem;
+    --spacing-lg: 1.25rem;
+  }
+  
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .cours-card {
+    padding: var(--spacing-sm);
+  }
+  
+  .cours-card-footer {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: flex-start;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
